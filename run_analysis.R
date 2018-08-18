@@ -62,7 +62,7 @@ names(dat.msd) <- gsub("^f", "Frequency", names(dat.msd))
 ### 5. tidy data set with the average of each variable for each activity and each subject
 # group and average 
 dat.msd.melted <- melt(dat.msd, id = c("subject", "activityName"))
-data.msd.mean <- dcast(dat.msd.melted, subject + activityName ~ variable, mean)
+dat.msd.mean <- dcast(dat.msd.melted, subject + activityName ~ variable, mean)
 
 # write to txt file 
-write.table(data.msd.mean, file="tidy_data.txt", row.name = FALSE)
+write.table(dat.msd.mean, file="tidy_data.txt", row.name = FALSE)
